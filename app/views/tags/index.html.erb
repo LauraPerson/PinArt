@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Tags#index</h1>
+  <p>Find me in app/views/tags/index.html.erb</p>
+
+  <% @tags.each do |tag| %>
+  <div class="card p-2 m-2">
+    <p><%= tag.name %></p>
+  </div>
+  <% end %>
+</div>

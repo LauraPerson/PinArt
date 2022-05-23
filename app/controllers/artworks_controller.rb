@@ -8,4 +8,25 @@ class ArtworksController < ApplicationController
 
   def show
   end
+
+  def new 
+    @artwork = Artwork.new
+  end
+
+
+  def create
+    @artwork = Artwork.new(params_artwork)
+    @artwork.user = current_user
+    if @artwork.save!
+      redirect_to artworks_path
+    else
+      redirect_to home_path
+    end
+  end
+
+  private 
+
+  def params_artwork
+    params.fetch(:artwork).permit(:name, :artist, :category, :user_id)
+  end
 end

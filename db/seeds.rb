@@ -9,7 +9,7 @@ Artwork.destroy_all
   p "Created Laura User"
 
 user = User.first
-event = Event.create!(
+Event.create!(
   name: "Paris Photo",
   city: "Paris",
   category: "Festival", 
@@ -18,7 +18,7 @@ event = Event.create!(
 )
 p "Created Paris Photo Event"
 
-event = Event.create!(
+Event.create!(
   name: "Festival de Photographie d'Arles",
   city: "Arles",
   category: "Festival", 
@@ -27,7 +27,7 @@ event = Event.create!(
 )
 p "Created Arles Event"
 
-event = Event.create!(
+Event.create!(
   name: "Vivian Meyer expo",
   city: "Paris",
   category: "Centre Pompidou", 
@@ -48,3 +48,22 @@ p "Created Vivian Meyer Event"
   )
   p "Create #{artwork.id} Artworks"
 end
+
+Tag.create!(
+  name: "Photographie",
+  user_id: user.id
+)
+p "Created Photography Tag"
+
+
+Tag.create!(
+  name: "Painting",
+  user_id: user.id
+)
+p "Created Photography Tag"
+
+Tag.create!(
+  name: "Drawing",
+  user_id: user.id
+)
+p "Created Photography Tag"
