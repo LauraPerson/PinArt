@@ -17,6 +17,15 @@
     <% else %>
       <p>Pas encore d'évènement</p>
     <% end %>
+
+    <% unless Tag.nil? %>
+      <div class="d-flex">
+        <%= f.input :tag, collection: Tag.all, label: false %>
+        <%= link_to "Ajouter un Tag", new_tag_path, class:'btn btn-primary' %>
+      </div>
+    <% else %>
+      <p>Pas encore de tag</p>
+    <% end %>
     <%= f.submit %>
   <% end %>   
 </div>

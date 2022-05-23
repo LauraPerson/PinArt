@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_23_154143) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_23_163754) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_154143) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "tag_artworks", force: :cascade do |t|
+    t.bigint "artwork_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_tag_artworks_on_artwork_id"
+    t.index ["tag_id"], name: "index_tag_artworks_on_tag_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
@@ -69,5 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_154143) do
   add_foreign_key "event_artworks", "artworks"
   add_foreign_key "event_artworks", "events"
   add_foreign_key "events", "users"
+  add_foreign_key "tag_artworks", "artworks"
+  add_foreign_key "tag_artworks", "tags"
   add_foreign_key "tags", "users"
 end
