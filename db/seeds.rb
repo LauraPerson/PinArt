@@ -37,14 +37,12 @@ Event.create!(
 p "Created Vivian Meyer Event"
 
 3.times do |n|
-  event = Event.first
   user = User.first
   artwork = Artwork.create!(
     name: "name#{n}",
     artist: "artist#{n}",
     category: "category#{n}", 
     user_id: user.id,
-    event_id: event.id
   )
   p "Create #{artwork.id} Artworks"
 end

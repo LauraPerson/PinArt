@@ -8,7 +8,12 @@
     <% Artwork::CATEGORIES.each do |categ| %>
       <%= f.label categ %>
       <%= f.check_box :category, collection: categ %>
-    <% end %>   
+    <% end %>
+    <% unless Event.nil? %>
+      <%= f.input :event, collection: Event.all %>
+    <% else %>
+      <p>Pas encore d'évènement</p>
+    <% end %>
     <%= f.submit %>
   <% end %>   
 </div>
