@@ -3,6 +3,7 @@ class ArtworksController < ApplicationController
   end
 
   def index
+    @artworks = Artwork.all
   end
 
   def show

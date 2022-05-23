@@ -1,2 +1,14 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="container">
+  <h1>Events#index</h1>
+  <p>Find me in app/views/events/index.html.erb</p>
+
+  <% @events.each do |event| %>
+  <div class="card p-2 m-2">
+    <p><%= event.name %></p>
+    <p><%= event.city %></p>
+    <p><%= event.institution %></p>
+    <p><%= event.date %></p>
+    <p><%= event.category %></p>
+  </div>
+  <% end %>
+</div>
