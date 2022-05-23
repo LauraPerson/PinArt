@@ -10,7 +10,10 @@
       <%= f.check_box :category, collection: categ %>
     <% end %>
     <% unless Event.nil? %>
-      <%= f.input :event, collection: Event.all %>
+      <div class="d-flex">
+        <%= f.input :event, collection: Event.all, label: false %>
+        <%= link_to "Ajouter un évènement", new_event_path, class:'btn btn-primary' %>
+      </div>
     <% else %>
       <p>Pas encore d'évènement</p>
     <% end %>
