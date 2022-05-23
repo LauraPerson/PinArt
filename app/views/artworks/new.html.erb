@@ -5,29 +5,35 @@
   <%= simple_form_for @artwork, url: artworks_path, method: :post do |f| %>
     <%= f.input :name %>
     <%= f.input :artist %>
+    <%= f.input :tags, collection: @tags, label: false%>
     <% Artwork::CATEGORIES.each do |categ| %>
       <%= f.label categ %>
-      <%= f.check_box :category, collection: categ %>
-    <% end %>
-    <% unless Event.nil? %>
-      <div class="d-flex">
-        <%= f.input :event, collection: Event.all, label: false %>
-        <%= link_to "Ajouter un évènement", new_event_path, class:'btn btn-primary' %>
-      </div>
-    <% else %>
-      <p>Pas encore d'évènement</p>
+      <%= f.check_box :category %>
     <% end %>
 
-    <% unless Tag.nil? %>
-      <div class="d-flex">
-        <%= f.input :tag, collection: Tag.all, label: false %>
-        <%= link_to "Ajouter un Tag", new_tag_path, class:'btn btn-primary' %>
-      </div>
-    <% else %>
-      <p>Pas encore de tag</p>
-    <% end %>
-    <%= f.submit %>
-  <% end %>   
+    <%# <div class="my-4"> %>
+        <%# <% unless Event.nil? %>
+        <%#   <div class="d-flex">
+          <%= f.input :event, collection: Event.all, label: false %>
+         <%#    <%= link_to "Ajouter un évènement", new_event_path, class:'btn btn-primary' %>
+         <%#  </div>
+      <% else %>
+       <%#    <p>Pas encore d'évènement</p>
+      <% end %>
+      <%# </div>
+    <div class="d-flex my-4">
+      <% unless Tag.nil? %>
+        <%#     <% Tag.all.each do |tag| %>
+        <%#   <%#       <%= f.label tag.name %>
+         <%#      <%= f.check_box :tags, collection: tag %>
+         <%#    <% end %>
+          <%#   <%= link_to "Ajouter un Tag", new_tag_path, class:'btn btn-primary' %>
+        <%# <% else %>
+        <%#   <%#   <p>Pas encore de tag</p>
+      <% end %>
+        <%= f.submit %>
+       </div>
+  <% end %>
 </div>
 
 

@@ -11,6 +11,8 @@ class ArtworksController < ApplicationController
 
   def new 
     @artwork = Artwork.new
+    @tags = Tag.all
+    
   end
 
 
@@ -27,6 +29,6 @@ class ArtworksController < ApplicationController
   private 
 
   def params_artwork
-    params.fetch(:artwork).permit(:name, :artist, :category, :user_id)
+    params.fetch(:artwork).permit(:name, :artist, :category, :user_id, :event_id)
   end
 end
