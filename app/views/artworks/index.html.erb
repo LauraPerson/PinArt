@@ -6,7 +6,9 @@
       <p><%= artwork.name %></p>
       <p><%= artwork.artist %></p>
       <p><%= artwork.category %></p>
-      <p><%= artwork.event.name %></p>
+      <% if artwork.event_artwork %>
+        <p><%= artwork.event_artwork.event.name %></p>
+      <% end %>
       <p><%= artwork.tag_list %></p>
     </div>
   <% end %>

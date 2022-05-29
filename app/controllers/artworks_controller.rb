@@ -18,19 +18,22 @@ class ArtworksController < ApplicationController
   def create
     @artwork = Artwork.new(params_artwork)
     @artwork.user = current_user
-    @event_id = params[:artwork][:event].to_i
-    event = Event.where(id: @event_id)
-    @artwork.event = event
+    @event = Event.find(params[:artwork][:event])
+    @selected_event = EventArtwork.new
+    @selected_event.event = @event
+    @selected_event.artwork = @artwork
+    @selected_event.save!
+    @artwork.event_artwork = @selected_event
     if @artwork.save!
       redirect_to artworks_path
     else
       redirect_to home_path
     end
   end
-
+  
   private 
-
+  
   def params_artwork
-    params.fetch(:artwork).permit(:name, :artist, :category, :user_id, :event_id, :tag_list)
+    params.require(:artwork).permit(:name, :artist, :category, :user_id, :event_artwork_id, :tag_list)
   end
 end
