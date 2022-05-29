@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-controller="tag">
   <h1>Artworks#new</h1>
   <p>Find me in app/views/artworks/new.html.erb</p>
 
@@ -7,7 +7,7 @@
     <%= f.input :artist %>
     <%= f.input :event, collection: @user_events %>
     <%= f.input :category, collection: Artwork::CATEGORIES %>
-    <%= f.input :tag_list, label: "Add tags", hint: "Add your tags, separated by commas" %>
+    <%= f.input :tag_list, label: "Add tags", hint: "Add your tags, separated by commas", class:"tags" %>
   <!-- Add tags as checkboxes -->
     <%# <%= f.input :tag_list, as: :check_boxes, collection: [ "Pass your collection here" ] %>
     <%= f.submit %>

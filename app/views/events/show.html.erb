@@ -1,2 +1,7 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1><%= @event.name %></h1>
+<h2>Your PinArts in <%= @event.name %> </h2>
+
+<% @artworks.each do |artwork| %>
+  <p><%= artwork.name %></p>
+<% end %>
+

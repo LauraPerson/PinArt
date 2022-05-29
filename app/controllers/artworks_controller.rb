@@ -1,5 +1,5 @@
 class ArtworksController < ApplicationController
-
+  
   def index
     @artworks = Artwork.all
   end
@@ -10,8 +10,6 @@ class ArtworksController < ApplicationController
   def new 
     @user_events = Event.all.where(user_id: current_user)
     @artwork = Artwork.new
-
-    
   end
 
 
@@ -30,6 +28,7 @@ class ArtworksController < ApplicationController
       redirect_to home_path
     end
   end
+
   
   private 
   

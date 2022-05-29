@@ -9,7 +9,10 @@
       <% if artwork.event_artwork %>
         <p><%= artwork.event_artwork.event.name %></p>
       <% end %>
-      <p><%= artwork.tag_list %></p>
+      <% artwork.tag_list.each do |tag| %>
+        <a href="" class="tags">#<%= tag %></a>
+      <% end %>
     </div>
   <% end %>
+
 </div>

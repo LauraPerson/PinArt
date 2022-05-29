@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'tag_artworks/create'
+  get '/tagged', to: "artworks#tagged", as: :tagged
+
 
   devise_for :users
   root to: "pages#home"

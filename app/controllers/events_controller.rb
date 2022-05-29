@@ -6,6 +6,12 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
+    @event_artworks = EventArtwork.where(event_id: @event.id)
+    @artworks = []
+    @event_artworks.each do |e|
+      @artworks << e.artwork
+    end
   end
 
 
