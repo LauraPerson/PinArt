@@ -46,22 +46,3 @@ p "Created Vivian Meyer Event"
   )
   p "Create #{artwork.id} Artworks"
 end
-
-Tag.create!(
-  name: "Photographie",
-  user_id: user.id
-)
-p "Created Photography Tag"
-
-
-Tag.create!(
-  name: "Painting",
-  user_id: user.id
-)
-p "Created Photography Tag"
-
-Tag.create!(
-  name: "Drawing",
-  user_id: user.id
-)
-p "Created Photography Tag"

@@ -74,6 +74,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    acts-as-taggable-on (9.0.1)
+      activerecord (>= 6.0, < 7.1)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.4.7.0)
@@ -136,7 +138,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
-    msgpack (1.5.1)
+    msgpack (1.5.2)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -225,8 +227,8 @@ GEM
     strscan (3.0.3)
     thor (1.2.1)
     tilt (2.0.10)
-    timeout (0.2.0)
-    turbo-rails (1.1.0)
+    timeout (0.3.0)
+    turbo-rails (1.1.1)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -255,6 +257,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts-as-taggable-on
   autoprefixer-rails
   bootsnap
   capybara
