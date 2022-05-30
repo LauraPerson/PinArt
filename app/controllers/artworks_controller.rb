@@ -17,11 +17,20 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new(params_artwork)
     @artwork.user = current_user
     @event = Event.find(params[:artwork][:event])
+
     @selected_event = EventArtwork.new
     @selected_event.event = @event
     @selected_event.artwork = @artwork
     @selected_event.save!
     @artwork.event_artwork = @selected_event
+
+    @artwork.tag_list.each do |tag|
+      current_user.tag(@artwork, :with => tag, :on => tag)
+    end
+
+    # @artwork.tag_list.each do |tag|
+    #   @artwork.tagged_with(tag)
+    # end
     if @artwork.save!
       redirect_to artworks_path
     else

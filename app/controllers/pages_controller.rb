@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @tags = ActsAsTaggableOn::Tag.all.where()
+    @tags = current_user.owned_taggings
+    @owned_tags = current_user.owned_tags
   end
 end
