@@ -1,2 +1,22 @@
-<h1>Artworks#new</h1>
-<p>Find me in app/views/artworks/new.html.erb</p>
+<div class="container">
+  <h1>Artworks#new</h1>
+  <p>Find me in app/views/artworks/new.html.erb</p>
+  <div>
+    <%= simple_form_for [@artwork], url: artworks_path, method: :post do |f| %>
+      <%= f.input :name %>
+      <%= f.input :artist %>
+      <%= f.input :event, collection: @user_events %>
+      <%= f.input :category, collection: Artwork::CATEGORIES %>
+      <div>
+        <%= f.input :tag_list, collection: current_user.owned_tags %>
+        <%= f.input :tag_list, label: "Add tags", hint: "Add your tags, separated by commas", class:"tags" %>
+      </div>
+    <!-- Add tags as checkboxes -->
+      <%# <%= f.input :tag_list, as: :check_boxes, collection: [ "Pass your collection here" ] %>
+        <%= f.submit%>
+    <% end %>
+  </div>
+</div>
+
+
+

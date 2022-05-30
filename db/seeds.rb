@@ -9,7 +9,7 @@ Artwork.destroy_all
   p "Created Laura User"
 
 user = User.first
-event = Event.create!(
+Event.create!(
   name: "Paris Photo",
   city: "Paris",
   category: "Festival", 
@@ -18,7 +18,7 @@ event = Event.create!(
 )
 p "Created Paris Photo Event"
 
-event = Event.create!(
+Event.create!(
   name: "Festival de Photographie d'Arles",
   city: "Arles",
   category: "Festival", 
@@ -27,7 +27,7 @@ event = Event.create!(
 )
 p "Created Arles Event"
 
-event = Event.create!(
+Event.create!(
   name: "Vivian Meyer expo",
   city: "Paris",
   category: "Centre Pompidou", 
@@ -37,14 +37,12 @@ event = Event.create!(
 p "Created Vivian Meyer Event"
 
 3.times do |n|
-  event = Event.first
   user = User.first
   artwork = Artwork.create!(
     name: "name#{n}",
     artist: "artist#{n}",
     category: "category#{n}", 
     user_id: user.id,
-    event_id: event.id
   )
   p "Create #{artwork.id} Artworks"
 end
