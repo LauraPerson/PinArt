@@ -1,11 +1,17 @@
-<div class="container">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-  <%= link_to "My Events", events_path, class:"btn btn-primary" %>
-  <%= link_to "My PinArts", artworks_path, class:"btn btn-warning" %>
-  <% @owned_tags.each do |tag| %>
-    <%= link_to tag, tag_path(tag) %>
-  <% end %>
+<div class="container container-center-content">
+  <h1>Wekcome on PinArt!</h1>
+  <div class="rounded-btn"><%= link_to "Add a new event", events_path %><i class="fa-solid fa-calendar icon mx-2"></i></div>
+  <div class="rounded-btn"><%= link_to "My Pinned Artworks", artworks_path %><i class="fa-solid fa-heart mx-2"></i></div>
+  <div class="rounded-btn"><%= link_to "Pin a new Artwork", new_artwork_path %><i class="fa-solid fa-palette mx-2"></i></div>
+
+  <div class="d-flex">
+    <% @owned_tags.each do |tag| %>
+      <div class="rounded-btn ">
+        #<%= link_to tag, tag_path(tag) %>
+      </div>
+    <% end %>
+  </div>
+
 
 
 </div>

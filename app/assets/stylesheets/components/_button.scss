@@ -1,0 +1,15 @@
+.rounded-btn {
+  border-radius: 30px;
+  border: 1px solid white;
+  padding: 15px;
+  width: fit-content;
+  color: white;
+  margin: 15px;
+  a {
+    text-decoration: none !important;
+    color: white;
+    :hover {
+      color:black;
+    }
+  }
+}
