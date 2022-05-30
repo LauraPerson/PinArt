@@ -5,6 +5,8 @@ class ArtworksController < ApplicationController
   end
 
   def show
+    @artwork = Artwork.find(params[:id])
+    @related_artworks = @artwork.find_related_tags
   end
 
   def new 

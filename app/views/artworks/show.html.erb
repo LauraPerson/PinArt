@@ -1,2 +1,10 @@
 <h1>Artworks#show</h1>
 <p>Find me in app/views/artworks/show.html.erb</p>
+
+
+<h3>Related Artworks</h3>
+<ul>
+  <% @related_artworks.each do |r| %>
+    <li><%= r.name %></li>
+  <% end %>
+</ul>
