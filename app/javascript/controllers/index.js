@@ -4,9 +4,11 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-import TagController from "./tag_controller"
-
+import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
-application.register("tag", TagController)
 
+import SearchTagsController from "./search_tags_controller.js"
+application.register("search-tags", SearchTagsController)
+
+import TagController from "./tag_controller.js"
+application.register("tag", TagController)

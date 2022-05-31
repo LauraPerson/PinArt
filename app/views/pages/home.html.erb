@@ -4,16 +4,20 @@
   <div class="rounded-btn"><%= link_to "My Pinned Artworks", artworks_path %><i class="fa-solid fa-heart mx-2"></i></div>
   <div class="rounded-btn"><%= link_to "Pin a new Artwork", new_artwork_path %><i class="fa-solid fa-palette mx-2"></i></div>
 
-  <div class="d-flex">
-    <% @owned_tags.each do |tag| %>
-      <div class="rounded-btn ">
-        #<%= link_to tag, tag_path(tag) %>
-      </div>
+  <div data-controller="search-tags">
+    <%= form_with url: root_path, method: :get, html: {class: "mb-4", data: {search_tags_target: "form"}} do |f| %>
+      <%= f.text_field :query,
+                      class: "form-control",
+                      placeholder: "Type a Tag",
+                      value: params[:query],
+                      data: {search_tags_target: "input", 
+                      action: "keyup->search-tags#update"} %>
     <% end %>
+    <h1>Look for an event</h1>
+
+    <%= render 'list' %>
+
   </div>
-
-
-
 </div>
 
 
