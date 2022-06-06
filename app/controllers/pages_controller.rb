@@ -1,5 +1,8 @@
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
+
+
 
   def home
     @owned_tags = current_user.owned_tags

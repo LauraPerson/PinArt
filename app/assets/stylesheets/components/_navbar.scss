@@ -5,8 +5,9 @@
   border-bottom: 1px solid white;
   h1 {
     font-family: $title;
-    color: $primary;
-    font-size: 68px;
+    font-size: 48px;
+    letter-spacing: 10px;
+    color: white;
   }
 }
 
@@ -17,3 +18,69 @@
 .navbar-lewagon .navbar-brand img {
   width: 60px;
 }
+
+/* Sidenav menu */
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -250px;
+  background-color: $background;
+  padding-top: 60px;
+  transition: left 0.5s ease;
+  border: 1px solid #000000;
+  box-shadow: 40px 40px 40px rgba(0, 0, 0, 0.25); 
+}
+
+
+/* Sidenav menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  box-shadow: $primary-color 0px -0.4rem 0px inset, inset 0 -1rem 0 $background;
+  transition: 0.4s;
+}
+
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Active class */
+.sidenav.active {
+  left: 0;
+}
+
+/* Close btn */
+.sidenav .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+/* Icône burger */
+.burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+}
+
+
+// @media screen and (max-width: 640px) {
+//   .sidenav {
+//     width: 100%;
+//   }
+// }

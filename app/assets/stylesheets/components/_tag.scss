@@ -13,3 +13,17 @@
   width: fit-content;
   border-radius: 30px;
 }
+
+.tag-style {
+  padding: 5px;
+  border-radius: 30px;
+}
+
+.tag-tag {
+  border: 2px solid $primary-color;
+}
+
+.tag-event {
+  border: 2px solid $secondary;
+
+}

@@ -4,8 +4,17 @@
 
 import { application } from "./application"
 
+import AddArtController from "./add_art_controller.js"
+application.register("add-art", AddArtController)
+
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
+
+import LateralnavController from "./lateralnav_controller.js"
+application.register("lateralnav", LateralnavController)
+
+import PoemController from "./poem_controller.js"
+application.register("poem", PoemController)
 
 import SearchTagsController from "./search_tags_controller.js"
 application.register("search-tags", SearchTagsController)

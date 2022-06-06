@@ -1,10 +1,17 @@
 <div class="container">
-  <h1>Artworks#new</h1>
-  <p>Find me in app/views/artworks/new.html.erb</p>
-  <div>
-    <%= simple_form_for [@artwork], url: artworks_path, method: :post do |f| %>
+  <h1>Add an Artwork</h1>
+  <div data-controller="add-art">
+    <%= simple_form_for([@artwork], data: {add_art_target: "form"}, url: artworks_path, method: :post) do |f| %>
       <%= f.input :name %>
-      <%= f.input :artist %>
+      <%= f.text_field :artist, class: "form-control",
+                      placeholder: "add an artist",
+                      value: :artist,
+                      data: {add_art_target: "input", 
+                      action: "keyup->add-art#fetchArtist"} 
+      %>
+      <div class="" data-add-art-target="list">
+
+      </div>
       <%= f.input :event, collection: @user_events %>
       <%= f.input :category, collection: Artwork::CATEGORIES %>
       <div>
@@ -16,6 +23,7 @@
         <%= f.submit%>
     <% end %>
   </div>
+
 </div>
 
 
