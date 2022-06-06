@@ -8,6 +8,12 @@
   }
 }
 
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40vw;
+}
+
 .tag-green {
   background-color: green;
   width: fit-content;
@@ -17,6 +23,7 @@
 .tag-style {
   padding: 5px;
   border-radius: 30px;
+  margin: 5px;
 }
 
 .tag-tag {

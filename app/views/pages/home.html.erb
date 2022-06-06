@@ -1,9 +1,8 @@
-<div class="container container-center-content">
-  <h1>Hello <%= current_user.email %></h1>
+<div class="container">
+  <h3>Hello <%= current_user.email %></h3>
 
   <% if current_user && current_user.owned_tags != nil %>
     <div data-controller="search-tags">
-      <h1>Look for an event or a tag</h1>
       <%= form_with url: root_path, method: :get, html: {class: "mb-4", data: {search_tags_target: "form"}} do |f| %>
         <%= f.text_field :query,
                         class: "form-control",
