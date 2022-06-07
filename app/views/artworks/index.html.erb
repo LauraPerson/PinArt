@@ -2,7 +2,10 @@
   <h1>Artworks#index</h1>
   <p>Find me in app/views/artworks/index.html.erb</p>
   <% @artworks.each do |artwork| %>
-    <div class="card m-2 p-2">
+    <div class="m-2 p-2">
+      <% if artwork.photo.attached? %>
+        <%= image_tag artwork.photo %>
+      <% end %>
       <p><%= artwork.name %></p>
       <p><%= artwork.artist %></p>
       <p><%= artwork.category %></p>

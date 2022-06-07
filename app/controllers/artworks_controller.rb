@@ -27,7 +27,8 @@ class ArtworksController < ApplicationController
     @artwork.event_artwork = @selected_event
 
     @artwork.tag_list.each do |tag|
-      current_user.tag(@artwork, :with => tag, :on => tag)
+      @tag = tag.gsub(/\s+/, "").downcase
+      current_user.tag(@artwork, :with => @tag, :on => @tag)
     end
 
     # @artwork.tag_list.each do |tag|
@@ -44,6 +45,6 @@ class ArtworksController < ApplicationController
   private 
   
   def params_artwork
-    params.require(:artwork).permit(:name, :artist, :category, :user_id, :event_artwork_id, :tag_list)
+    params.require(:artwork).permit(:name, :artist, :category, :user_id, :event_artwork_id, :tag_list, :photo)
   end
 end
