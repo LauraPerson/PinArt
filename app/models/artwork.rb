@@ -7,6 +7,8 @@ class Artwork < ApplicationRecord
   
   has_one :event_artwork
   has_one :event, through: :event_artwork
+  has_one_attached :photo
+
   
   accepts_nested_attributes_for :event, allow_destroy: true
 
