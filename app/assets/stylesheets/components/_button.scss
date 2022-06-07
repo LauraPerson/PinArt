@@ -1,0 +1,31 @@
+.rounded-btn {
+  border-radius: 30px;
+  border: 1px solid white;
+  padding: 15px;
+  width: fit-content;
+  color: white;
+  margin: 15px;
+  a {
+    text-decoration: none !important;
+    color: white;
+    :hover {
+      color:black;
+    }
+  }
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  padding: 10px;
+  border-radius: 30px;
+  margin-right: 10px;
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  border: 2px solid #f35050;
+  background-color: $primary-color;
+  a {
+    color: white;
+  }
+}

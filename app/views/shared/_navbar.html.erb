@@ -1,7 +1,27 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-5">
+
+  <div class="" data-controller="lateralnav">
+    <div id="mySidenav" class="sidenav" data-lateralnav-target="navbar" >
+      <a id="closeBtn" href="#" class="close" data-action="click->lateralnav#closeNavbar">×</a>
+      <ul>
+        <li class="d-flex justify-content-center align-items-center"><%= link_to "Home", root_path %><i class="fa-solid fa-heart mx-2"></i></li>
+        <li class="d-flex justify-content-center align-items-center"><%= link_to "My Artworks", artworks_path %><i class="fa-solid fa-heart mx-2"></i></li>
+        <li class="d-flex justify-content-center align-items-center"><%= link_to "Add a new event", events_path %><i class="fa-solid fa-calendar icon mx-2"></i></li>
+      </ul>
+    </div>
+
+    <a href="#" id="openBtn" class="mx-3" data-action="click->lateralnav#openNavbar">
+      <span class="burger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </a>
+  </div>
+
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to root_path, class: "navbar-brand d-flex align-items-center " do %>
+      <h1 class="m-2 title">Pin.Art</h1>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,14 +31,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
+          <li class="nav-item btn-primary">
+            <%= link_to "Pin a new Artwork", new_artwork_path %><i class="fa-solid fa-palette mx-2"></i>
+          </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag 'profil.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
@@ -34,3 +54,5 @@
     </div>
   </div>
 </div>
+
+
