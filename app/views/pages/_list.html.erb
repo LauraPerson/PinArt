@@ -2,7 +2,7 @@
   <% @events.each do |event| %>
     <p><%= link_to event.name, event_path(event),class:'tag-event tag-style'%></p>
   <% end %>
-  <% @owned_tags.each do |tag| %>
+  <% @tags.each do |tag| %>
       <p <%= link_to "##{tag.name}", tag_path(tag), class:'tag-tag tag-style'%></p>
   <% end %>
 </div>

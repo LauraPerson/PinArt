@@ -1,24 +1,27 @@
 <div class="container">
-  <h3>Hello <%= current_user.email %></h3>
+  <% if current_user %>
+    <h3>Hello <%= current_user.email %></h3>
 
-  <% if current_user && current_user.owned_tags != nil %>
-    <div data-controller="search-tags">
-      <%= form_with url: root_path, method: :get, html: {class: "mb-4", data: {search_tags_target: "form"}} do |f| %>
-        <%= f.text_field :query,
-                        class: "form-control",
-                        placeholder: "tag, event ...",
-                        value: params[:query],
-                        data: {search_tags_target: "input", 
-                        action: "keyup->search-tags#update"} %>
-      <% end %>
-      <%= render 'list' %>
+    <% if current_user && current_user.owned_tags != nil %>
+      <div data-controller="search-tags">
+        <%= form_with url: root_path, method: :get, html: {class: "mb-4", data: {search_tags_target: "form"}} do |f| %>
+          <%= f.text_field :query,
+                          class: "form-control",
+                          placeholder: "tag, event ...",
+                          value: params[:query],
+                          data: {search_tags_target: "input", 
+                          action: "keyup->search-tags#update"} %>
+        <% end %>
+        <%= render 'list' %>
+      </div>
+    <% end %>
+    <div data-controller="poem">
+      <p data-poem-target="content">
+      </p>
     </div>
+  <% else %>
+   <h1>Hi stranger!</h1>
   <% end %>
-  <div data-controller="poem">
-    <p data-poem-target="content">
-      <em><%= Faker::Quotes::Shakespeare.hamlet_quote %></em>
-    </p>
-  </div>
 </div>
 
 

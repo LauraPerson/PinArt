@@ -23,3 +23,8 @@ a {
   color: white;
 }
 
+
+.content-wrapper {
+  min-height: calc(100vh - 80px);
+  position: relative;
+}
